@@ -23,6 +23,10 @@ public class SmithPApplet extends PApplet {
 		// there will be other stuff here in the future
 	}
 	
+	public void size(int w, int h) {
+		super.size(w, h, P2D);
+	}
+	
 	public void render() {
 		long curTime = System.currentTimeMillis();
 		long elapsedTime = curTime - lastTime;
