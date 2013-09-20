@@ -1,5 +1,7 @@
+# os X #
+*.DS_Store
+# java #
 *.class
-
 # Package Files #
 *.jar
 *.war
