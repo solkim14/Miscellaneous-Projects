@@ -1,13 +1,14 @@
 package edu.smith.csc.csc260.interpolators.scalarInterpolators;
 
-import edu.smith.csc.csc260.interpolators.InterpolatorBase;
+import edu.smith.csc.csc260.interpolation.AbstractInterpolator;
+import edu.smith.csc.csc260.interpolation.easing.EasingFunction;
 
-public class LinearScalarInterpolator extends InterpolatorBase implements ScalarInterpolator {
+public class LinearScalarInterpolator extends AbstractInterpolator implements ScalarInterpolator {
 	float startValue;
 	float endValue;
 	
-	public LinearScalarInterpolator(long startTime, long endTime, int loops, float startValue, float endValue) {
-		super(startTime, endTime, loops);
+	public LinearScalarInterpolator(float startValue, float endValue, EasingFunction easing) {
+		super(easing);
 		
 		this.startValue = startValue;
 		this.endValue = endValue;
@@ -15,8 +16,8 @@ public class LinearScalarInterpolator extends InterpolatorBase implements Scalar
 
 	@Override
 	public float getScalar() {
-		float oneMinT = 1.0f-t;
-		return startValue * oneMinT + endValue * t;
+		float t = easing.getT();
+		return startValue * (1.0f - t) + endValue * t;
 	}
 
 }

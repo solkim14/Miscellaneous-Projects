@@ -23,11 +23,11 @@ public class InterpolatedSprite extends Sprite {
 
 	public void updatePosition(long curTime, long lastTime, long elapsedTime) {
 		if(locationInterpolator != null) {
-			locationInterpolator.calcT(curTime);
+			locationInterpolator.updateEasing(curTime);
 			location = locationInterpolator.getPoint();
 		}
 		if(angleInterpolator != null) {
-			angleInterpolator.calcT(curTime);
+			angleInterpolator.updateEasing(curTime);
 			angle = angleInterpolator.getScalar();
 		}
 	}

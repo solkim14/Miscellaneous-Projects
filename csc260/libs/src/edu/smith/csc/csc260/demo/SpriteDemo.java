@@ -1,6 +1,7 @@
 package edu.smith.csc.csc260.demo;
 
 import edu.smith.csc.csc260.core.SmithPApplet;
+import edu.smith.csc.csc260.interpolation.easing.LinearEasingFunction;
 import edu.smith.csc.csc260.interpolators.pointInterpolators.LinearPointInterpolator;
 import edu.smith.csc.csc260.interpolators.scalarInterpolators.LinearScalarInterpolator;
 import edu.smith.csc.csc260.spites.ConstantVelocitySprite;
@@ -45,8 +46,16 @@ public class SpriteDemo extends SmithPApplet {
 		
 		InterpolatedSprite is = new InterpolatedSprite();
 		is.setFill(new Color(0,0,255, 255));
-		is.setLocationInterpolator(new LinearPointInterpolator(10 * 1000, 20 * 1000, 3, new Point(20, 180), new Point(180,20)));
-		is.setAngleInterpolator(new LinearScalarInterpolator(10 * 1000, 15 * 1000, 0, 0, (float) (2 * Math.PI)));
+		is.setLocationInterpolator(new LinearPointInterpolator(
+				new Point(20, 180), 
+				new Point(180,20),
+				new LinearEasingFunction(10*1000, 20* 100, 3)));
+
+		is.setAngleInterpolator(new LinearScalarInterpolator(
+				0, 
+				(float)(2 * Math.PI),
+				new LinearEasingFunction(10*1000, 15* 100, 0)));
+
 		addSprite(is);
 	}
 	

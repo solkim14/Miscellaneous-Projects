@@ -1,6 +1,6 @@
-package edu.smith.csc.csc260.interpolators;
+package edu.smith.csc.csc260.interpolation.easing;
 
-public abstract class InterpolatorBase implements Interpolator  {
+public class LinearEasingFunction implements EasingFunction  {
 	
 	private long startTime;
 	private long endTime;
@@ -13,11 +13,11 @@ public abstract class InterpolatorBase implements Interpolator  {
 	
 	protected float t;
 
-	public InterpolatorBase(long startTime, long endTime) {
+	public LinearEasingFunction(long startTime, long endTime) {
 		this(startTime, endTime, 1);
 	}
 
-	public InterpolatorBase(long startTime, long endTime, int loopCnt) {
+	public LinearEasingFunction(long startTime, long endTime, int loopCnt) {
 		setTimes(startTime, endTime);
 		this.loopCnt = loopCnt;
 	}
@@ -86,6 +86,10 @@ public abstract class InterpolatorBase implements Interpolator  {
 		} else {
 			t =  (curTime - startTime) * invDuration;
 		}
+		return t;
+	}
+	
+	public float getT() {
 		return t;
 	}
 
