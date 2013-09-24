@@ -49,12 +49,12 @@ public class SpriteDemo extends SmithPApplet {
 		is.setLocationInterpolator(new LinearPointInterpolator(
 				new Point(20, 180), 
 				new Point(180,20),
-				new LinearEasingFunction(10*1000, 20* 100, 3)));
+				new LinearEasingFunction(10*1000, 20* 1000, 3)));
 
 		is.setAngleInterpolator(new LinearScalarInterpolator(
 				0, 
 				(float)(2 * Math.PI),
-				new LinearEasingFunction(10*1000, 15* 100, 0)));
+				new LinearEasingFunction(10*1000, 15* 1000, 0)));
 
 		addSprite(is);
 	}
