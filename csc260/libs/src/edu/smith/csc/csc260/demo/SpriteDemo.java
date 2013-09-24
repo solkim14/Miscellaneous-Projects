@@ -18,7 +18,7 @@ public class SpriteDemo extends SmithPApplet {
 		
 		size(200,200);
 		frameRate(30);
-		setBackgroundColor(new Point(50,50,50));
+		setBackgroundColor(new Color(50,50,50, 255));
 		
 		RectangleSprite r = new RectangleSprite(10, 30);
 		r.setLocation(new Point(5, 15));

@@ -4,6 +4,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 import processing.core.PApplet;
 import edu.smith.csc.csc260.spites.Sprite;
+import edu.smith.csc.csc260.util.Color;
 import edu.smith.csc.csc260.util.Point;
 
 public class SmithPApplet extends PApplet {
@@ -16,7 +17,7 @@ public class SmithPApplet extends PApplet {
 	ConcurrentLinkedQueue<Sprite> renderList = new ConcurrentLinkedQueue<Sprite>(); // list of sprites to draw
 	ConcurrentLinkedQueue<Sprite> newSpriteList = new ConcurrentLinkedQueue<Sprite>(); // list of sprites to draw
 	
-	Point bgColor = null;
+	Color bgColor = null;
 	
 	public void setup() {
 		startTime = System.currentTimeMillis();
@@ -28,10 +29,10 @@ public class SmithPApplet extends PApplet {
 		// there will be other stuff here in the future
 	}
 	
-	public void setBackgroundColor(Point color) {
+	public void setBackgroundColor(Color color) {
 		this.bgColor = color;
 	}
-	public Point getBackgroundColor() {
+	public Color getBackgroundColor() {
 		return bgColor;
 	}
 	
@@ -40,7 +41,7 @@ public class SmithPApplet extends PApplet {
 			bgColor = null;
 		} else {
 			if (bgColor == null) {
-				bgColor = new Point(0,0,0);				
+				bgColor = new Color(0,0,0,255);				
 			}
 		}
 	}
@@ -56,7 +57,7 @@ public class SmithPApplet extends PApplet {
 		long elapsedTime = curTime - lastTime;
 
 		if(bgColor != null) {
-			background(bgColor.getX(), bgColor.getY(), bgColor.getZ());
+			background(bgColor.getR(), bgColor.getG(), bgColor.getB(), bgColor.getA());
 		}
 		for(Sprite sprite : newSpriteList) {
 			sprite.setup(this);
