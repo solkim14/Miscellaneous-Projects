@@ -19,7 +19,7 @@ public class SpriteDemo extends SmithPApplet {
 		
 		size(200,200);
 		frameRate(30);
-		setBackgroundColor(new Color(50,50,50, 255));
+		setBackgroundColor(new Color(70,50,70, 255));
 		
 		RectangleSprite r = new RectangleSprite(10, 30);
 		r.setLocation(new Point(5, 15));
@@ -34,7 +34,7 @@ public class SpriteDemo extends SmithPApplet {
 		addSprite(r);
 		
 		PShapeSprite ps = new PShapeSprite();
-		ps.setLocation(new Point(50, 50));
+		ps.setLocation(new Point(100, 100));
 		addSprite(ps);
 		
 		ConstantVelocitySprite cvs = new ConstantVelocitySprite(new Point(.01f, 0,0),0); 

@@ -10,8 +10,10 @@ public class SmithPApplet extends PApplet {
 	
 	private static final long serialVersionUID = 1L; // added to avoid warning message
 	
-	long startTime;
-	long lastTime;
+	private long startTime;
+	protected long lastTime;
+	protected long curTime;
+	protected long elapsedTime;
 	
 	ConcurrentLinkedQueue<Sprite> renderList = new ConcurrentLinkedQueue<Sprite>(); // list of sprites to draw
 	ConcurrentLinkedQueue<Sprite> newSpriteList = new ConcurrentLinkedQueue<Sprite>(); // list of sprites to draw
@@ -52,8 +54,8 @@ public class SmithPApplet extends PApplet {
 	}
 	
 	public void render() {
-		long curTime = System.currentTimeMillis() - startTime;
-		long elapsedTime = curTime - lastTime;
+		 curTime = System.currentTimeMillis() - startTime;
+		 elapsedTime = curTime - lastTime;
 
 		if(bgColor != null) {
 			background(bgColor.getR(), bgColor.getG(), bgColor.getB(), bgColor.getA());
@@ -76,5 +78,26 @@ public class SmithPApplet extends PApplet {
 	public void removeSprite(Sprite sprite) {
 		newSpriteList.remove(sprite);
 		renderList.remove(sprite);
+	}
+
+	/**
+	 * @return the lastTime
+	 */
+	public long getLastTime() {
+		return lastTime;
+	}
+
+	/**
+	 * @return the curTime
+	 */
+	public long getCurTime() {
+		return curTime;
+	}
+
+	/**
+	 * @return the elapsedTime
+	 */
+	public long getElapsedTime() {
+		return elapsedTime;
 	}
 }

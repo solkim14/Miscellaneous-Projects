@@ -16,6 +16,7 @@ public class RectangleSprite extends Sprite {
 		halfHeight = height * .5f;
 	}
 	
+	@Override
 	public void render(SmithPApplet pApplet) {
 		pApplet.rect(-halfWidth, -halfHeight, width, height);
 	}

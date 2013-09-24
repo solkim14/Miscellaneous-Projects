@@ -17,11 +17,13 @@ public class InterpolatedSprite extends Sprite {
 	public ScalarInterpolator getAngleInterpolator() {
 		return angleInterpolator;
 	}
+	
 	public void setAngleInterpolator(ScalarInterpolator angleInterpolator) {
 		this.angleInterpolator = angleInterpolator;
 	}
 
-	public void updatePosition(long curTime, long lastTime, long elapsedTime) {
+	@Override
+	public void updatePosition(SmithPApplet pApplet, long curTime, long lastTime, long elapsedTime) {
 		if(locationInterpolator != null) {
 			locationInterpolator.updateEasing(curTime);
 			location = locationInterpolator.getPoint();
@@ -31,6 +33,8 @@ public class InterpolatedSprite extends Sprite {
 			angle = angleInterpolator.getScalar();
 		}
 	}
+	
+	@Override
 	public void render(SmithPApplet pApplet) {
 		pApplet.rect(-10, -10, 20, 20);
 	}

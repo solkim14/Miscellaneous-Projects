@@ -65,7 +65,7 @@ public class Sprite {
 	 * @param lastTime - the system time of the last frame
 	 * @param elapsedTime - the difference between the current time and the last time
 	 */
-	public void updatePosition(long curTime, long lastTime, long elapsedTime) {
+	public void updatePosition(SmithPApplet pApplet, long curTime, long lastTime, long elapsedTime) {
 		
 	}
 	
@@ -81,7 +81,7 @@ public class Sprite {
 	 */
 	public void display(SmithPApplet pApplet, long curTime, long lastTime, long elapsedTime) {
 
-		updatePosition(curTime, lastTime, elapsedTime);
+		updatePosition(pApplet, curTime, lastTime, elapsedTime);
 		draw(pApplet);
 	}
 	

@@ -15,13 +15,16 @@ public class ConstantVelocitySprite extends Sprite {
 		this.angularVelocity = angularVelocity;
 	}
 	
-	public void updatePosition(long curTime, long lastTime, long elapsedTime) {
+	@Override
+	public void updatePosition(SmithPApplet pApplet, long curTime, long lastTime, long elapsedTime) {
 		location.add(
 				velocity.getX() * elapsedTime,
 				velocity.getY() * elapsedTime,
 				velocity.getZ() * elapsedTime);
 		angle+=angularVelocity;
 	}
+
+	@Override
 	public void render(SmithPApplet pApplet) {
 		pApplet.rect(-10, -10, 20, 20);
 	}
