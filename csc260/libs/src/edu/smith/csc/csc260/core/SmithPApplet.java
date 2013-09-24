@@ -5,7 +5,6 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import processing.core.PApplet;
 import edu.smith.csc.csc260.spites.Sprite;
 import edu.smith.csc.csc260.util.Color;
-import edu.smith.csc.csc260.util.Point;
 
 public class SmithPApplet extends PApplet {
 	
