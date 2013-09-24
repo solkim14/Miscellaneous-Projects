@@ -87,12 +87,20 @@ public class Sprite {
 	
 	/**
 	 * Override this in subclasses if you want sprite to be visible.
-	 * @param glAutoDrawable
+	 * @param pApplet
 	 */
 	public void render(SmithPApplet pApplet) {
 		
 	}
 	
+	/**
+	 * Override this in a subclass if you need to setup your sprite with a reference to the SmithPApplet or 
+	 * in a "valid opengl context." Gets called inside PApplet's draw method before the Sprite's display, draw, or render methods get called
+	 * @param pApplet
+	 */
+	public void setup(SmithPApplet pApplet) {
+		
+	}
 	
 	public void draw(SmithPApplet pApplet) {
 		pApplet.pushStyle();

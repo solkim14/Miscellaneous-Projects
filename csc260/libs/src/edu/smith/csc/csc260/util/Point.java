@@ -19,9 +19,7 @@ public class Point {
 	}
 
 	public Point(float x, float y, float z) {
-		this.x = x;
-		this.y = y;
-		this.z = z;
+		set(x,y,z);
 	}
 	
 	
@@ -32,10 +30,36 @@ public class Point {
 	public void setX(float x) { this.x = x; }
 	public void setY(float y) { this.y = y; }
 	public void setZ(float z) { this.z = z; }
-	
+	public void set(float x, float y, float z) {
+		this.x = x;
+		this.y = y;
+		this.z = z;		
+	}
 	public void set(Point p) {
 		x = p.x;
 		y = p.y;
 		z = p.z;
+	}
+	
+	public void addX(float amount) {
+		this.x += amount;
+	}
+	
+	public void addY(float amount) {
+		this.y += amount;
+	}
+	
+	public void addZ(float amount) {
+		this.z += amount;
+	}
+	public void add(float x, float y, float z) {
+		this.x +=x;
+		this.y +=y;
+		this.z +=z;
+	}
+	public void add(Point p) {
+		this.x +=p.x;
+		this.y +=p.y;
+		this.z +=p.z;		
 	}
 }
