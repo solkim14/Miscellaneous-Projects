@@ -21,7 +21,7 @@ public class ConstantVelocitySprite extends Sprite {
 				velocity.getX() * elapsedTime,
 				velocity.getY() * elapsedTime,
 				velocity.getZ() * elapsedTime);
-		angle+=angularVelocity;
+		angle+=angularVelocity * elapsedTime;
 	}
 
 	@Override

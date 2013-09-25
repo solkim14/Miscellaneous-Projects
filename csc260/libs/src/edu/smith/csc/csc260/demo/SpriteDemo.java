@@ -41,7 +41,7 @@ public class SpriteDemo extends SmithPApplet {
 		addSprite(cvs);
 		cvs = new ConstantVelocitySprite(new Point(0, .01f, 0),0); 
 		addSprite(cvs);
-		cvs = new ConstantVelocitySprite(new Point(.01f, .01f,0), .1f); 
+		cvs = new ConstantVelocitySprite(new Point(.01f, .01f,0), .01f); 
 		addSprite(cvs);
 		
 		InterpolatedSprite is = new InterpolatedSprite();
