@@ -5,11 +5,11 @@ import edu.smith.csc.csc260.util.Color;
 import edu.smith.csc.csc260.util.Point;
 
 public class Sprite {
-	float angle;
-	Point location = new Point();
-	Point offset = new Point();
-	Color fill = new Color(255,255,255,255);
-	Color stroke = new Color(0,0,0,255);
+	protected float angle;
+	protected Point location = new Point();
+	protected Point offset = new Point();
+	protected Color fill = new Color(255,255,255,255);
+	protected Color stroke = new Color(0,0,0,255);
 	
 	public Sprite() {
 		
