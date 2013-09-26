@@ -4,8 +4,8 @@ import edu.smith.csc.csc260.core.SmithPApplet;
 import edu.smith.csc.csc260.util.Point;
 
 public class ConstantVelocitySprite extends Sprite {
-	Point velocity;
-	float angularVelocity;
+	protected Point velocity;
+	protected float angularVelocity;
 	/**
 	 * A sprite the moves at a constant velocity
 	 * @param velocity - in pixels per ms
