@@ -21,6 +21,7 @@ public class SpriteDemo extends SmithPApplet {
 		frameRate(30);
 		setBackgroundColor(new Color(70,50,70, 255));
 		
+		/**
 		RectangleSprite r = new RectangleSprite(10, 30);
 		r.setLocation(new Point(5, 15));
 		r.setFill(new Color(255,0,0,255));
@@ -36,6 +37,7 @@ public class SpriteDemo extends SmithPApplet {
 		PShapeSprite ps = new PShapeSprite();
 		ps.setLocation(new Point(100, 100));
 		addSprite(ps);
+		*/
 		
 		ConstantVelocitySprite cvs = new ConstantVelocitySprite(new Point(.01f, 0,0),0); 
 		addSprite(cvs);
@@ -44,7 +46,7 @@ public class SpriteDemo extends SmithPApplet {
 		cvs = new ConstantVelocitySprite(new Point(.01f, .01f,0), .01f); 
 		addSprite(cvs);
 		
-		InterpolatedSprite is = new InterpolatedSprite();
+		/** InterpolatedSprite is = new InterpolatedSprite();
 		is.setFill(new Color(0,0,255, 255));
 		is.setLocationInterpolator(new LinearPointInterpolator(
 				new Point(20, 180), 
@@ -57,6 +59,7 @@ public class SpriteDemo extends SmithPApplet {
 				new LinearEasingFunction(10*1000, 15* 1000, 0)));
 
 		addSprite(is);
+		*/
 	}
 	
 
