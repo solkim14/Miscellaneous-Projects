@@ -1,5 +1,12 @@
 package edu.smith.csc.csc260.solandfreda;
 
+import java.util.Hashtable;
+import java.util.Vector;
+import java.util.concurrent.ConcurrentHashMap;
+
+import SimpleOpenNI.SimpleOpenNI;
+import edu.smith.csc.csc260.core.SmithPApplet;
+
 import processing.core.PVector;
 import edu.smith.csc.csc260.core.SmithPApplet;
 import edu.smith.csc.csc260.spites.Sprite;

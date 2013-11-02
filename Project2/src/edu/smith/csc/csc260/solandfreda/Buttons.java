@@ -22,8 +22,8 @@ public class Buttons extends SmithPApplet {
 	FBox boxButton;
 	FCircle circleButton;
 	FPoly polyButton;
-	int width = 400;
-	int height = 400;
+	int width = 800;
+	int height = 800;
 	
 	//Color buttonColor = new Color(255,0,255,255);
 	int buttonColor = 5;
@@ -71,10 +71,10 @@ public class Buttons extends SmithPApplet {
 	}
 
 	public void draw() {
+		super.draw();
 		background(255);
 		world.step();
 		world.draw();
-		super.draw();
 	}
 
 	public void mousePressed() {
