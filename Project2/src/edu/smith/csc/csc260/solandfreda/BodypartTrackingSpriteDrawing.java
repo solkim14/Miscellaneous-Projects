@@ -1,24 +1,19 @@
 package edu.smith.csc.csc260.solandfreda;
 
-import java.util.Hashtable;
-import java.util.Vector;
-import java.util.concurrent.ConcurrentHashMap;
 
-import SimpleOpenNI.SimpleOpenNI;
 import edu.smith.csc.csc260.core.SmithPApplet;
-
 import processing.core.PVector;
-import edu.smith.csc.csc260.core.SmithPApplet;
 import edu.smith.csc.csc260.spites.Sprite;
 import edu.smith.csc.csc260.util.Color;
+import edu.smith.csc.csc260.util.Point;
 
-public class BodypartTrackingSprite extends Sprite {
-	BodypartTrackingApplet handView;
+public class BodypartTrackingSpriteDrawing extends Sprite {
+	BodypartTrackingAppletDrawing handView;
 	int id;
 	int bodyPart;
 	float conf = 0;
 
-	public BodypartTrackingSprite(BodypartTrackingApplet handView, int id, int bodyPart) {
+	public BodypartTrackingSpriteDrawing(BodypartTrackingAppletDrawing handView, int id, int bodyPart) {
 		super();
 		this.handView = handView;
 		this.id = id;
@@ -43,6 +38,17 @@ public class BodypartTrackingSprite extends Sprite {
 			this.location.set(pvec2d.x, pvec2d.y, 0);
 
 		}
+	}
+	
+	public Point getPosition() {
+		Point position = null;
+		//conf = handView.simpleOpenNI.getJointPositionSkeleton(id, bodyPart, pvec);
+
+		//if (conf != 0) {
+			handView.simpleOpenNI.convertRealWorldToProjective(pvec,pvec2d);
+			position = new Point(pvec2d.x, pvec2d.y);
+		//}
+		return position;
 	}
 	
 	

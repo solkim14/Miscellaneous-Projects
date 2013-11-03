@@ -19,24 +19,26 @@ public class Buttons extends SmithPApplet {
 	public Buttons() {
 	}
 
+	/** Fields */
+	int width = 400;
+	int height = 400;
+	
 	FBox boxButton;
 	FCircle circleButton;
 	FPoly polyButton;
-	int width = 800;
-	int height = 800;
 	
-	//Color buttonColor = new Color(255,0,255,255);
-	int buttonColor = 5;
+	int buttonColor = 255;
 	int bodyColor = 100;
 	int hoverColor = 255;
 	
 	FWorld world;
+	
 
-	void setup(SmithPApplet pApplet) {
-	  pApplet.size(height, width);
-	  pApplet.smooth();
+	public void setup() {
+	  size(height, width);
+	  smooth();
 
-	  Fisica.init(pApplet); //weird?
+	  Fisica.init(this);
 
 	  world = new FWorld();
 	  world.setEdges();
@@ -67,14 +69,14 @@ public class Buttons extends SmithPApplet {
 	  polyButton.setFillColor(buttonColor);
 	  polyButton.setNoStroke();
 	  world.add(polyButton);
-
 	}
 
 	public void draw() {
-		super.draw();
 		background(255);
+		
 		world.step();
 		world.draw();
+		//super.draw();
 	}
 
 	public void mousePressed() {
@@ -87,8 +89,7 @@ public class Buttons extends SmithPApplet {
 	    myBox.setFillColor(bodyColor);
 	    myBox.setNoStroke();
 	    world.add(myBox);
-	  } 
-	  else if (pressed == circleButton) {
+	  } else if (pressed == circleButton) {
 	    FCircle myCircle = new FCircle(40);
 	    myCircle.setPosition(2*width/4, 200);
 	    myCircle.setRotation(random(TWO_PI));
@@ -96,8 +97,7 @@ public class Buttons extends SmithPApplet {
 	    myCircle.setFillColor(bodyColor);
 	    myCircle.setNoStroke();
 	    world.add(myCircle);
-	  } 
-	  else if (pressed == polyButton) {
+	  } else if (pressed == polyButton) {
 	    FPoly myPoly = new FPoly();
 	    myPoly.vertex(20, 20);
 	    myPoly.vertex(-20, 20);
@@ -117,7 +117,6 @@ public class Buttons extends SmithPApplet {
 	      || hovered == circleButton
 	      || hovered == polyButton) {
 	    hovered.setFillColor(hoverColor);
-
 	  } else {
 	    boxButton.setFillColor(buttonColor);
 	    circleButton.setFillColor(buttonColor);
@@ -128,7 +127,7 @@ public class Buttons extends SmithPApplet {
 	public void keyPressed() {
 	  try {
 	    saveFrame("screenshot.png");
-	  } 
+	  }
 	  catch (Exception e) {
 	  }	
 	}
