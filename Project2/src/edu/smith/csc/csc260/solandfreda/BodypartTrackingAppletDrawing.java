@@ -3,9 +3,13 @@ package edu.smith.csc.csc260.solandfreda;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 
+import processing.core.PVector;
 import SimpleOpenNI.SimpleOpenNI;
 import edu.smith.csc.csc260.core.SmithPApplet;
 import edu.smith.csc.csc260.util.Point;
+import fisica.FCircle;
+import fisica.FWorld;
+import fisica.Fisica;
 
 public class BodypartTrackingAppletDrawing extends SmithPApplet {
 	private static final long serialVersionUID = 1L;
@@ -18,6 +22,10 @@ public class BodypartTrackingAppletDrawing extends SmithPApplet {
 	Vector<BodypartTrackingSpriteDrawing> newTracks = new Vector<BodypartTrackingSpriteDrawing>();
 	Point rightHandPos;
 	Point headPos;
+	
+	//fisica fields
+	public FWorld world;
+	int ballCount = 2;
 
 	
 	public void setup() {
@@ -34,9 +42,16 @@ public class BodypartTrackingAppletDrawing extends SmithPApplet {
 		simpleOpenNI.enableUser();
 
 		size(simpleOpenNI.rgbWidth(), simpleOpenNI.rgbHeight()); 
+		
+		//fisica setup
+		Fisica.init(this);
+
+		world = new FWorld();
+		world.setEdges();
+		
 	}
-	
-	public void onNewUser(SimpleOpenNI curContext, int userId) {
+
+		public void onNewUser(SimpleOpenNI curContext, int userId) {
 		simpleOpenNI.startTrackingSkeleton(userId);
 		
 		BodypartTrackingSpriteDrawing bts = new BodypartTrackingSpriteDrawing(this, userId, SimpleOpenNI.SKEL_LEFT_HAND);
@@ -67,32 +82,35 @@ public class BodypartTrackingAppletDrawing extends SmithPApplet {
 
 	}
 	
+	PVector head = new PVector();
+	PVector leftHand = new PVector();
+	PVector rightHand =new PVector();
+	float confHead;
+	float confLeft;
+	float confRight;
+	float leftHandToHeadDist;
+	float threshold = 170;
+	
 	public void draw() {
 		simpleOpenNI.update();
 		image(simpleOpenNI.rgbImage(), 0, 0);
 		
-		if (userPresent == true) {
-			rightHandPos = newTracks.get(1).getPosition(); // right hand
-			headPos = newTracks.get(2).getPosition(); // head
+		int[] users = simpleOpenNI.getUsers();
+		for(int user : users) {
+			confHead = simpleOpenNI.getJointPositionSkeleton(user, SimpleOpenNI.SKEL_HEAD, head);
+			confLeft = simpleOpenNI.getJointPositionSkeleton(user, SimpleOpenNI.SKEL_LEFT_HAND, leftHand);
+			confRight = simpleOpenNI.getJointPositionSkeleton(user, SimpleOpenNI.SKEL_RIGHT_HAND, rightHand);
+			leftHandToHeadDist = leftHand.dist(head); //in cm?
+			System.out.println(leftHandToHeadDist);
 			
-			System.out.println(rightHandPos.getX());
-			//System.out.println(headPos.getX());
-			
-			//distance = findDistance(rightHandPos.getX(),rightHandPos.getY(),headPos.getX(),headPos.getY());
-			//System.out.println(distance);
+			if (leftHandToHeadDist < threshold) {
+				//simpleOpenNI.disableRGB();
+				System.out.println("ON YO HEAD!!!");
+			}
 		}
-		
+		world.step();
+		world.draw();
 		super.draw();
 	}
-	
-	/** find distance between two points */
-	public float findDistance(float f, float h, double x2, double y2) {
-
-		float distance = (float)Math.sqrt(((int)(x2-f)*(x2-f)) + ((int)(y2-h)*(y2-h)));
-
-		//System.out.println(distance);
-
-		return distance;
-	}
-	
 }
+

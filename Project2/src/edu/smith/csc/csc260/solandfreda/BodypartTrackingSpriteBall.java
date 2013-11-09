@@ -4,7 +4,6 @@ import processing.core.PVector;
 import edu.smith.csc.csc260.core.SmithPApplet;
 import edu.smith.csc.csc260.spites.Sprite;
 import edu.smith.csc.csc260.util.Color;
-import fisica.*;
 
 public class BodypartTrackingSpriteBall extends Sprite {
 	BodypartTrackingAppletBall handView;
