@@ -85,7 +85,7 @@ public class Humdrum extends SmithPApplet {
 	  minim = new Minim(this);
 	  player = minim.loadFile("tick.wav", 2048);
 	  player.play();
-	  player.loop();
+	  //player.loop();
 	  
 	  
 	  //dialogues

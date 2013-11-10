@@ -6,6 +6,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jbox2D"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Processing"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/SimpleOpenNI"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/minim"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/libs"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
