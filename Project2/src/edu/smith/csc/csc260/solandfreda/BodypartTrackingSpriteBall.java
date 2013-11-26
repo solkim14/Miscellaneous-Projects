@@ -38,7 +38,6 @@ public class BodypartTrackingSpriteBall extends Sprite {
 		if (conf != 0) {
 			handView.simpleOpenNI.convertRealWorldToProjective(pvec,pvec2d);
 			this.location.set(pvec2d.x, pvec2d.y, 0);
-
 		}
 	}
 	

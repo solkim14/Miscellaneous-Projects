@@ -20,6 +20,8 @@ public class TestApplet extends SmithPApplet {
 		int ballCount = 10;
 		int i = 5;
 		FCircle b;
+		
+		double distance;
 
 		public void setup() {
 		  size(400, 400);
@@ -29,52 +31,26 @@ public class TestApplet extends SmithPApplet {
 
 		  world = new FWorld();
 		  world.setEdges(this, 0);
-		  //world.remove(world.left);
-		  //world.remove(world.right);
-		  //world.remove(world.top);
-		  //world.setEdgesRestitution(0.0);
+		  
+		  b = new FCircle(25);
+		  b.setPosition(PApplet.map(i, 0, ballCount-1, 40, width-40), height/6);
+		  b.setRestitution(PApplet.map(i, 0, ballCount-1, 0.0f, 1.0f));
+		  b.setNoStroke();
+		  b.setFill(map(i, 0, ballCount-1, 60, 255), 80, 120);
+		  world.add(b);
 		 
-		  /**
-		  for (int i=0; i<ballCount; i++) {
-		    FCircle b = new FCircle(25);
-		    b.setPosition(PApplet.map(i, 0, ballCount-1, 40, width-40), height/6);
-		    b.setRestitution(PApplet.map(i, 0, ballCount-1, 0.0f, 1.0f));
-		    b.setNoStroke();
-		    b.setFill(map(i, 0, ballCount-1, 60, 255), 80, 120);
-		    world.add(b);
-		  }
-		  */
-		  
-		  /**
-		    FCircle b = new FCircle(25);
-		    b.setPosition(PApplet.map(i, 0, ballCount-1, 40, width-40), height/6);
-		    b.setRestitution(PApplet.map(i, 0, ballCount-1, 0.0f, 1.0f));
-		    b.setNoStroke();
-		    b.setFill(map(i, 0, ballCount-1, 60, 255), 80, 120);
-		    world.add(b);
-		    */
-		  
-		    b = new FCircle(25);
-		    b.setPosition(PApplet.map(i, 0, ballCount-1, 40, width-40), height/6);
-		    b.setRestitution(PApplet.map(i, 0, ballCount-1, 0.0f, 1.0f));
-		    b.setNoStroke();
-		    b.setFill(map(i, 0, ballCount-1, 60, 255), 80, 120);
-		    world.add(b);
-		  
+		  //distance = Math.sqrt(Math.pow((x2-x1),2) + Math.pow((y2-y1)));
 		}
 
 		public void draw() {
 		  background(255);
+		  
+		  ellipse(height/2, width/2, 50, 50);
 
 		  world.step();
 		  world.draw();
+		  super.draw();
 		}
+		//FMouseJoint(FBody body, float x, float y) 
 
-		public void keyPressed() {
-		  try {
-		    saveFrame("screenshot.png");
-		  } 
-		  catch (Exception e) {
-		  }
-		}
 }
