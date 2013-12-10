@@ -15,6 +15,8 @@ public class Mandy {
 	private float x;
 	private float y;
 	private Point position;
+	private int tint = 0xFFFFFF; //DEFAULT WHITE
+
 	
 	/** CONSTRUCTOR */
 	public Mandy(float xPos, float yPos) {
@@ -49,8 +51,26 @@ public class Mandy {
 		position = newPosition;
 	}
 	
+	/** ACCESSOR FOR POSITION */
+	public int getTint() {
+		return tint;
+	}	
+	/** MANIPULATOR FOR TINT */
+	public void setTint(int mode) {
+		if (mode == 0) {
+			tint = 0xFFFFFF;
+		} else if (mode == 1) {
+			tint = 0xFDEFDB;
+		} else if (mode == 2) {
+			tint = 0x800000;
+		} else if (mode == 3) {
+			tint = 0xFFFFFF;
+		}
+	}
+	
 	/** DRAW MANDY */
 	public void render(PApplet pApplet) {
-	    pApplet.ellipse(x,y,100,100);
+		pApplet.tint(tint);
+	    pApplet.ellipse(x,y,150,150);
 	}
 }
