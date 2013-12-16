@@ -70,7 +70,7 @@ public class Mandy {
 	
 	/** DRAW MANDY */
 	public void render(PApplet pApplet) {
-		pApplet.tint(tint);
+		//pApplet.tint(tint);
 	    pApplet.ellipse(x,y,150,150);
 	}
 }
